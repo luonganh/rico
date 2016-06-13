@@ -5,8 +5,8 @@ using System.Xml.Linq;
 
 namespace Rico.Model.Models
 {
-    [Table("Products")]
-    public class Product : Auditable
+    [Table("Posts")]
+    public class Post : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -27,14 +27,6 @@ namespace Rico.Model.Models
         [MaxLength(256)]
         public string Image { get; set; }
 
-        public XElement MoreImages { get; set; }
-
-        public decimal Price { get; set; }
-
-        public decimal? PromotionPrice { get; set; }
-
-        public int? Warranty { get; set; }
-
         [MaxLength(500)]
         public string Description { get; set; }
 
@@ -47,6 +39,6 @@ namespace Rico.Model.Models
         public int? ViewCount { get; set; }
 
         [ForeignKey("CategoryID")]
-        public virtual ProductCategory ProductCategory { get; set; }
+        public virtual PostCategory PostCategory { get; set; }
     }
 }

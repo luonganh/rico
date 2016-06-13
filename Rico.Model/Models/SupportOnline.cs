@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Rico.Model.Models
 {
-    [Table("Menus")]
-    public class Menu
+    [Table("SupportOnlines")]
+    public class SupportOnline
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -19,22 +19,24 @@ namespace Rico.Model.Models
         [MaxLength(50)]
         public string Name { get; set; }
 
-        [Required]
-        [MaxLength(256)]
-        public string URL { get; set; }
+        [MaxLength(50)]
+        public string Department { get; set; }
+
+        [MaxLength(50)]
+        public string Skype { get; set; }
+
+        [MaxLength(50)]
+        public string Mobile { get; set; }
+
+        [MaxLength(50)]
+        public string Email { get; set; }
+
+        [MaxLength(50)]
+        public string Facebook { get; set; }
+
+        [MaxLength(50)]
+        public bool Status { get; set; }
 
         public int? DisplayOrder { get; set; }
-
-        [Required]
-        public int GroupID { get; set; }
-
-        [ForeignKey("GroupID")]
-        public virtual MenuGroup MenuGroup { get; set; }
-
-        [MaxLength(10)]
-        public string Target { get; set; }
-
-        [Required]
-        public bool Status { get; set; }
     }
 }
